@@ -1,0 +1,39 @@
+name: Deploy ARAG insurance landing page to Azure
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: azure-insurance-arag-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: azure-insurance-arag-production
+      url: https://orange-ground-08ca4a703.5.azurestaticapps.net/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate site
+        run: node tests/validate.cjs
+      - name: Stage public site only
+        run: |
+          mkdir _azure_site
+          cp index.html styles.css script.js staticwebapp.config.json _azure_site/
+          cp -R assets _azure_site/assets
+      - name: Deploy to the dedicated ARAG insurance Static Web App
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ARAG }}
+          action: upload
+          app_location: /_azure_site
+          api_location: ""
+          output_location: ""
+          skip_app_build: true
