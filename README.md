@@ -21,7 +21,8 @@ GitHub Pages deploys from `main` through `.github/workflows/pages.yml`. The dedi
 ## Contact form
 
 - Service: FormSubmit; main recipient `florian.liepe@eraneos.com`
-- CC and displayed partner: Dr. Oliver Hüfner, `Oliver.Huefner@eraneos.com`
+- Hidden CC recipients: Dr. Oliver Hüfner, `Oliver.Huefner@eraneos.com`, and Nicolas Faulbecker, `Nicolas.Faulbecker@eraneos.com`
+- Displayed team: Dr. Florian Liepe, Dr. Oliver Hüfner (Partner · Eraneos), and Nicolas Faulbecker (Director Insurance)
 - Required name, company, business email, topic, message and consent
 - No confidential, policyholder or sensitive data should be submitted
 - Success redirect uses the active origin and directory, preserving the GitHub Pages repository path
