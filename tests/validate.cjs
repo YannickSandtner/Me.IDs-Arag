@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const script = fs.readFileSync(path.join(root, 'script.js'), 'utf8');
-const canonical = 'https://orange-ground-08ca4a703.5.azurestaticapps.net/';
+const canonical = 'https://intellectual-twin-insurance-arag.eraneos.com/';
 assert(!/Wascosa|cargo|freight|Schienengüter|Olaf|Radant|SIGNAL IDUNA|signal-iduna|intellectual-twin-insurance\.eraneos/i.test(html + script));
 assert(html.includes(`rel="canonical" href="${canonical}"`));
 assert(html.includes('action="https://formsubmit.co/florian.liepe@eraneos.com"'));
@@ -29,7 +29,7 @@ assert(html.includes('die finale Leistungsentscheidung verbleiben bei den dafür
 for (const match of html.matchAll(/(?:src|href)="(assets\/[^"#]+|styles\.css|script\.js)"/g)) assert(fs.existsSync(path.join(root, match[1])), match[1]);
 const azureWorkflow = fs.readFileSync(path.join(root, '.github/workflows/azure-static-web-apps.yml'), 'utf8');
 assert(azureWorkflow.includes('secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ARAG'));
-assert(azureWorkflow.includes('https://orange-ground-08ca4a703.5.azurestaticapps.net/'));
+assert(azureWorkflow.includes('https://intellectual-twin-insurance-arag.eraneos.com/'));
 assert(!/mango-beach|ashy-mud|SWA-Intellectual-Twin-Keynote/.test(azureWorkflow));
 assert(!fs.existsSync(path.join(root, 'CNAME')));
 JSON.parse(fs.readFileSync(path.join(root, 'staticwebapp.config.json'), 'utf8'));
