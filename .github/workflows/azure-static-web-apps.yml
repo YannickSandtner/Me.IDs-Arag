@@ -15,9 +15,9 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
+      environment:
       name: azure-insurance-arag-production
-      url: https://orange-ground-08ca4a703.5.azurestaticapps.net/
+      url: https://intellectual-twin-insurance-arag.eraneos.com/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
